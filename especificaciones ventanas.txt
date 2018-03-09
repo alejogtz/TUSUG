@@ -1,0 +1,41 @@
+Especificaciones de las interfaces:
+
+>Ventana ingresar usuario:
+
+-Tamaño ventana: 662 x 230.
+
+
+>Ventanas page 1, 2 y 3:
+
+-Tamaño ventanas: 655 x 441.
+-Coordenadas lista de usuarios (JList): (63,87).
+-Tamaño lista de usuarios: 158 x 296.
+
+*Boton eliminar.
+- Coordenadas boton eliminar: (66,393).
+-Tamaño boton: 70 x 22.
+
+*Boton Refrescar.
+-Coordenadas: (146,393).
+-Tamaño: 75 x 22.
+
+
+*Boton nueva cuenta.
+-Coordenadas: (96,425).
+-Tamaño: 92 x 22.
+
+*Boton resetear.
+-Coordenadas: (432,432).
+-Tamaño: 86 x 22.
+
+*Boton confirmar.
+-Coordenadas: (528,433).
+-Tamaño: 91 x 22.
+
+*Menu (login, limites de cuenta, Roles administrativos).
+-Coordenadas: (239,59).
+-Tamaño: 424 x 34.
+
+NOTA: en cuanto a los demas componentes da igual donde lo pongan, pero deben caber en un
+panel de aprox. 438 x 296 con coordenadas (231,112) dentro de la ventana.
+Solo sera una sola ventana la cual tendra siempre la misma lista con los mismos botones y el mismo menu, solo cambiaran los paneles donde se encuentran las opciones de privilegios, registro de nuevas cuentas de usuario y los roles generales, ademas de la lista de roles globales.
