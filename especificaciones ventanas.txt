@@ -2,40 +2,127 @@ Especificaciones de las interfaces:
 
 >Ventana ingresar usuario:
 
--Tama�o ventana: 662 x 230.
+-Tamaño ventana: 662 x 230.
 
 
 >Ventanas page 1, 2 y 3:
 
--Tama�o ventanas: 655 x 441.
+-Tamaño ventanas: 655 x 441.
 -Coordenadas lista de usuarios (JList): (63,87).
--Tama�o lista de usuarios: 158 x 296.
+-Tamaño lista de usuarios: 158 x 296.
 
 *Boton eliminar.
 - Coordenadas boton eliminar: (66,393).
--Tama�o boton: 70 x 22.
+-Tamaño boton: 70 x 22.
 
 *Boton Refrescar.
 -Coordenadas: (146,393).
--Tama�o: 75 x 22.
+-Tamaño: 75 x 22.
 
 
 *Boton nueva cuenta.
 -Coordenadas: (96,425).
--Tama�o: 92 x 22.
+-Tamaño: 92 x 22.
 
 *Boton resetear.
 -Coordenadas: (432,432).
--Tama�o: 86 x 22.
+-Tamaño: 86 x 22.
 
 *Boton confirmar.
 -Coordenadas: (528,433).
--Tama�o: 91 x 22.
+-Tamaño: 91 x 22.
 
 *Menu (login, limites de cuenta, Roles administrativos).
 -Coordenadas: (239,59).
--Tama�o: 424 x 34.
+-Tamaño: 424 x 34.
 
 NOTA: en cuanto a los demas componentes da igual donde lo pongan, pero deben caber en un
 panel de aprox. 438 x 296 con coordenadas (231,112) dentro de la ventana.
 Solo sera una sola ventana la cual tendra siempre la misma lista con los mismos botones y el mismo menu, solo cambiaran los paneles donde se encuentran las opciones de privilegios, registro de nuevas cuentas de usuario y los roles generales, ademas de la lista de roles globales.
+
+
+
+<<<<<<Controlador de autobuses>>>>>>
+
+>Ventana consultar autobuses:
+-coordenadas: 32 X 23.
+-Tamaño: 600 x 438.
+
+*Barra de menu.
+-Coordenadas: 32 x 23.
+-Tamaño: 275 x 30.
+
+*campo de texto.
+-Coordenadas: 61 x 125.
+-Tamaño: 179 x 25.
+
+*Boton Buscar:
+-Coordenadas: 250 x 125.
+-Tamaño: 57 x 25.
+
+*Tabla autobuses.
+-Coordenadas: 61 x 172.
+-Tamaño: 542 x 202.
+
+*Boton eliminar.
+-Coordenadas: 226 x 410
+-Tamaño: 69 x 28.
+
+*Boton modificar.
+-Coordenadas: 305 x 410.
+-Tamaño: 91 x 28.
+
+*Boton actualizar.
+-Coordenadas:406 x 410.
+-Tamaño: 99 x 28.
+
+*Boton agregar:
+-Coordenadas: 515 x 410.
+-Tamaño: 77 x 28.
+////////////////////////////////////////////////////////////////////////////////
+>Ventana agregar nuevo autobus:
+
+-Tamaño: 542 x 416.
+
+NOTA: En este caso los componentes pueden variar su posicion por el espacio, pero
+para cuestiones de guia les proporcionare las coordenadas de los mismos:
+
+*Boton aceptar:
+-Coordenadas: 188 x 381
+-Tamaño: 87 x 27.
+
+*Boton cancelar:
+-Coordenadas: 309 x 381.
+-Tamaño: 96 x 27.
+
+*Campos de texto:
+-Tamaño: 251 x 25.
+///////////////////////////////////////////////////////////////////////////////
+>Ventana Agregar simiestro:
+-Tamaño: 542 x 416.
+
+*Boton aceptar:
+-Coordenadas: 188 x 381
+-Tamaño: 87 x 27.
+
+*Boton cancelar:
+-Coordenadas: 309 x 381.
+-Tamaño: 96 x 27.
+
+*Campos de texto:
+-Tamaño: 251 x 25.
+
+*Campo de estado:
+-Coordenadas: 261 x 307.
+-Tamaño: 159 x 22.
+///////////////////////////////////////////////////////////////////////////////
+>Ventana aviso de eliminacion:
+-Tamaño: 224 x 113.
+
+*Boton aceptar:
+-Coordenadas: 331 x 225.
+-Tamaño: 87 x 27.
+
+*Texto de aviso:
+-Coordenadas: 281 x 179.
+-Tamaño: 187 x 18.
