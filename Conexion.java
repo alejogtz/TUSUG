@@ -1,7 +1,7 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 public class Conexion{
-	Connection conn = null;
+	private static Connection conn = null;
 	//URL de Descargar del Driver
 	//https://jdbc.postgresql.org/download.html
 	private Conexion(){}
@@ -19,7 +19,7 @@ public class Conexion{
 	
 	public Connection getConexion(){
 		if (conn == null)
-			realizaConexion();
+			new Conexion().realizaConexion();
 		return conn;
 	}
 }
