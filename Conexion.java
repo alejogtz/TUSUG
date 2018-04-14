@@ -17,7 +17,7 @@ public class Conexion{
             System.out.println("La conexión se realizo sin problemas! =) ");
 	}
 	
-	public Connection getConexion(){
+	public static Connection getConexion(){
 		if (conn == null)
 			new Conexion().realizaConexion();
 		return conn;
