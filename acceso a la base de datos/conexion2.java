@@ -1,6 +1,6 @@
 
 package libray;
- 
+
 import java.sql.*;
  
 public class conexion2 {
@@ -19,8 +19,8 @@ public class conexion2 {
             // Database connect
             // Conectamos con la base de datos
             connection = DriverManager.getConnection(
-                    "jdbc:postgresql://localhost:5435/sistemaTusug",
-                    "postgres", "Kurama14");
+                    "jdbc:postgresql://localhost:5432/sistemaTusug",
+                    "postgres", "crisTIAN9018");
             conect=connection;
  
             boolean valid = connection.isValid(50000);
