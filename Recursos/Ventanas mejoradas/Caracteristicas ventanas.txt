@@ -2,7 +2,7 @@
 	-Tamaño ventana = 700 x 600 px.
 	
 
-	-Tamaño logo: 236 x 100 px.
+	-Tamaño logo: 293 x 100 px.
 	*Posición logo: (232,99).
 	
 
