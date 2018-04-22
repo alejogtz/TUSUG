@@ -1,4 +1,4 @@
-Especificaciones de las interfaces:
+﻿Especificaciones de las interfaces:
 
 >Ventana ingresar usuario:
 
@@ -41,7 +41,7 @@ panel de aprox. 438 x 296 con coordenadas (231,112) dentro de la ventana.
 Solo sera una sola ventana la cual tendra siempre la misma lista con los mismos botones y el mismo menu, solo cambiaran los paneles donde se encuentran las opciones de privilegios, registro de nuevas cuentas de usuario y los roles generales, ademas de la lista de roles globales.
 
 
-
+.
 <<<<<<Controlador de autobuses>>>>>>
 
 >Ventana consultar autobuses:
