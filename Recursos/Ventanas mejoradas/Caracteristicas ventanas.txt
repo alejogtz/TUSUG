@@ -1,0 +1,18 @@
+///////////////VENTANA LOGIN////////////////////
+	-Tamaño ventana = 700 x 600 px.
+	
+
+	-Tamaño logo: 236 x 100 px.
+	*Posición logo: (232,99).
+	
+
+	-Tamaño campos de texto: 293 x 38 px.
+	*Posición campos de texto:
+	*Campo 1: (205,231).
+	*Campo 2: (205,298).
+	
+
+	-Tamaño botón verde: 185 x 39 px.
+	*Posicion botón: 257 x 380.
+	////////////////////////////////////////////////
+ 
