@@ -153,4 +153,12 @@ public class Builder
         panel.setBackground(java.awt.Color.LIGHT_GRAY);
         return panel;
     }
+    
+    public static JLabel lblImg(Container context, String url, int w, int h, int x, int y){
+        Icon icon = new ImageIcon(url);
+        JLabel rtn = new JLabel(icon);
+        context.add(rtn);
+        rtn.setBounds(x, y, w, h);
+        return rtn;//tusug logo 116x42
+    }
 }
