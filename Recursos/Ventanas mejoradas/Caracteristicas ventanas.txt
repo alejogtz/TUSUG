@@ -632,5 +632,12 @@
 	*Tamaño texto: 92 x 17 px.
 	
 	>>CheckBox ultimo mes.
-	*Posicion: ().
+	*Posicion: (33,400).
+	*Tamaño texto: 71 x 17 px.
 	
+	>>CheckBox ultimo año.
+	*Posicion: (33,430).
+	*tamaño texto: 69 x 17 px. 
+	>>Boton abrirexcel.
+	*Posicion: (539,544).
+	*tamaño: 136 x 27 px.
