@@ -373,5 +373,174 @@
 	*Color boton: #8F92B1.
 	*Tamaño: 94 x 22 px.
 	
-
+	
+	///////////////VENTANA SECRETARIA -PANEL AUTOBUSES-////////////////////
+	
+	NOTA: COMPONENTES QUE SE MANTENDRAN INDEPENDIENTES DE TODOS LOS PANELES.
+	
+	
+       >>tamaño ventana = 700 x 600 px.
+	*Fuente: Segoe UI (Componentes de Label).
+	 *Tamaño: 10.
+	
+	>>Logo.
+	*Posicion: (40,20).
+	*Tamaño: 116 x 42 px.
+	
+	 >>Tamaño linea vertical: 33 x 2 px.
+	 *Posicion linea: (150,40).
+	 
+	 >>Posicion de texto de encabezado (ventana): (180,32).
+	 *Fuente: Segoe UI.
+	 *Tamaño: 10.
+	 *Codigo de color de texto (encabezado de la ventana): #07A2B8.
+	 *Codigo de color de texto (JLabels): #5B749D.
+	 
+	 >>Boton minimizar:
+	 *Posicion: (612,33).
+	 *Tamaño: 26 x 26 px.
+	 
+	 >>Boton cerrar:
+	 *Posicion: (652,33).
+	 *Tamaño: 26 x 26 px.
+	
+	>>Boton home:
+	*Posicion: (26,69).
+	*Tamaño: 27 x 27 px.
+	
+	>>Texto inicio:
+	*Posicion: (64,75).
+	*Tamaño: 34 x 17 px.
+	
+	>>Boton cerrar sesion:
+	*Posicion: (547,70).
+	*Tamaño: 23 x 24 px.
+	
+	>>Texto cerrar sesion:
+	*Posicion: (578,73).
+	*Tamaño: 78 x 17.
+	
+	>>Panel de JList (No es el JList en si, es el panel que contendra el encabezado, el Jlist y hasta  abajo un boton de actualizar)
+	*Posicion: (0,113).
+	*Tamaño: 213 x 487 px.
+	
+	>>Encabezado (dentro del panel color verde):
+	*Posicion: (0,112).
+	*Tamaño: 213 x 41 px.
+	*Texto: "RFC".
+	
+	>>Barra horizontal blanca:
+	*Posicion: (26,152).
+	*tamaño: 161 x 2 px.
+	
+	>>JList:
+	*Posicion: (17,162).
+	*Tamaño: 179 x 335 px.
+	
+	>>Boton actualizar lista:
+	*Posicion: 40 x 527.
+	*Tamaño: 133 x 37.
+	
+	
+	-----Componentes propios del panel-----
+	>>Boton buscar.
+	*Posicion: (222,112).
+	*Tamaño: 84 x 32 px.
+	
+	>>Campo de texto "buscar" (TextField).
+	*Posicion: (305,112).
+	*Tamaño: 216 32.
+	
+	>>ComboBox filtro.
+	*Posicion: (520,112).
+	*Tamaño: 133 x 32 px.
+	
+	>>Label "codigo autobus".
+	*Posicion: (254,162).
+	*Tamaño: 102 x 17.
+	
+	>>TextField codigo autobus.
+	*Posicion: (384,178).
+	*Tamaño: 271 x 17 px.
+	
+	>>Label "marca".
+	*Posicion: (254,192).
+	*Tamaño: 41 x 17 px.
+	
+	>>TextField marca.
+	*Posicion: (305,208).
+	*Tamaño: 351 x 17 px.
+	
+	>>Label "numero economico".
+	*Posicion: (254,223).
+	*Tamaño: 125 x 17 px.
+	
+	>>TextField numero economico.
+	*Posicion: (401,239).
+	*Tamaño: 255 x 17 px.
+	
+	>>Label "matricula".
+	*Posicion: (254,252).
+	*Tamaño: 118 x 17 px.
+	
+	>>TextField matricula.
+	*Posicion: (384,268).
+	*Tamaño: 269 x 17 px.
+	
+	>>Label "conductor asignado".
+	*Posicion: (254,284).
+	*Tamaño: 128 x 17 px.
+	
+	>>TextField conductor asignado.
+	*Posicion: (389,300).
+	*Tamaño: 159 x 17 px.
+	
+	>>Boton detalle chofer.
+	*Posicion: (556,281).
+	*Tamaño: 97 x 20 px.
+	
+	>>Label "fecha activacion de autobus".
+	*Posicion: (254,321).
+	*Tamaño: 201 x 17 px.
+	
+	>>Label dia,mes,año (SubTitulos).
+	*Posiciones: (457,312)  ,  (512,312)   ,   (577,312).
+	*Tamaños: 21 x 17 px , 25 x 17 px,  25 x 17 px.
+	
+	>>ComboBox dia,mes,año.
+	*Posiciones: (457,328)  ,  (514,328)  ,  (576,328).
+	*Tamaños: 52 x 20 px , 56 x 20 px , 72 x 20 px.
+	
+	>>Label "ultimo mantenimiento".
+	*Posicion: (254,359).
+	*Tamaño: 145 x 17 px.
+	
+	>>TextField ultimo mantenimiento.
+	*Posicion: (405,375).
+	*Tamaño: 248 x 17 px.
+	
+	>>TextArea "fecha proxima de mantenimiento".
+	*Posicion: (319,392).
+	*Tamaño: 113 x 35.
+	
+	>>Label dia,mes,año (SubTitulos).
+	*Posiciones: (457,392)  ,  (512,392)   ,   (577,392).
+	*Tamaños: 21 x 17 px , 25 x 17 px,  25 x 17 px.
+	
+	>>ComboBox dia,mes,año.
+	*Posiciones: (457,408)  ,  (514,408)  ,  (576,408).
+	*Tamaños: 52 x 20 px , 56 x 20 px , 72 x 20 px.
+	
+	>>Boton "nuevo autobus".
+	*Posicion: (266,490).
+	*Tamaño: 121 x 27 px.
+	
+	>>Boton "modificar".
+	*Posicion: (414,490).
+	*Tamaño: 97 x 27 px.
+	
+	>>Boton "eliminar".
+	*Posicion: (550,490).
+	*Tamaño: 80 x 27 px.
+	
  
