@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import libray.conexion2;
+import Datos.conexion2;
 public class reporte {
     conexion2 c2= new conexion2();
     Connection cn=c2.connectDatabase();

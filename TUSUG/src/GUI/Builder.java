@@ -1,4 +1,4 @@
-package Clases;
+package GUI;
 
 import java.awt.Component;
 import javax.swing.*;
