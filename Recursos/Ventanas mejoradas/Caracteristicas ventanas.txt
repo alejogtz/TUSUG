@@ -641,3 +641,7 @@
 	>>Boton abrirexcel.
 	*Posicion: (539,544).
 	*tamaño: 136 x 27 px.
+	
+	>>Boton "abrir en excel".
+	*Posicion: (539,544).
+	*Tamaño: 136 x 27 px.
