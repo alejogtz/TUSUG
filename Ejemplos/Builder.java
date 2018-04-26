@@ -1,179 +1,122 @@
- 
-
-//import Impresora.Utils.ButtonIcon;
-import java.awt.*;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusListener;
+import java.awt.Component;
+import javax.swing.*;
 import java.awt.event.ItemListener;
+import java.awt.event.ActionListener;
+import java.awt.Container;
 import java.awt.event.KeyListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-
-public abstract class Builder {
-
-    public static Frame buildFrame(Frame _new, String title, int w, int h, int x, int y, boolean undecorated) {
-        /**
-         * Frame sin layout
-         */
-        Dimension dim = new Dimension(w, h);
-        /**
-         * Tamanio que no puede cambiar y Layout null
-         */
-        _new.setMinimumSize(dim);
-        //_new.setMaximumSize(dim);
-        //_new.setPreferredSize(dim);
-        _new.setResizable(false);
-        _new.setLocation(x, y);
-        _new.setSize(dim);
-        _new.setLayout(null);
-        /**
-         * Terminar programa al cerrar
-         */
-        //_new.setUndecorated(undecorated);
-        _new.setBackground(Color.LIGHT_GRAY);           //cambiar color a conveniencia
-        _new.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent windowEvent) {
-                System.exit(0);
-            }
-        });
-        return _new;
+import java.awt.Rectangle;
+import java.awt.event.FocusListener;
+public class Builder
+{
+    public static JFrame construirFrame(JFrame frame,String title, int w, int h, int x, int y, boolean undecorated)
+    {
+        frame.setSize(w,h);
+        frame.setResizable(false);
+        frame.setLocation(x,y);
+        frame.setLayout(null);
+        frame.setLocationRelativeTo(null);
+        frame.setBackground(java.awt.Color.GRAY);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        return frame;
     }
-
-    public static Frame createFrame(String title, int w, int h, int x, int y, boolean undecorated) {
-        return buildFrame(new Frame(), title, w, h, x, y, undecorated);
+    public static JFrame crearFrame(String title, int w, int h, int x, int y, boolean undecorated) 
+    {
+        return construirFrame(new JFrame(), title, w, h, x, y, undecorated);
     }
-
-    /**
-     * Metodos para agregar componentes al Frame
-     *
-     * @param context
-     * @param lb
-     * @param bounds
-     */
-    public static void addLabel(Container context, Label lb, Rectangle bounds) {
-        lb.setAlignment(Label.RIGHT);
+    public static void agregarLabel(Container context, JLabel lb,Rectangle bounds,int x,int y,int ancho,int altura)
+    {
+        lb.setBounds(x,y,ancho,altura);
         add(context, lb, bounds);
     }
-
-    public static Label createLabel(Container context, String title, Rectangle bounds) {
-        return createLabel(context, title, bounds, Label.RIGHT);
+    public static JLabel crearLabel(Container context, String title,Rectangle bounds,int x,int y,int ancho,int altura) 
+    {
+        return crearLabel1(context, title, bounds,x,y,ancho,altura);
     }
-
-    public static Label createLabel(Container context, String title, Rectangle bounds, int alig) {
-        Label lb = new Label(title);
-        lb.setAlignment(alig);
+    public static JLabel crearLabel1(Container context, String title, Rectangle bounds, int x,int y,int ancho,int altura) 
+    {
+        JLabel lb = new JLabel(title);
+        lb.setBounds(x,y,ancho,altura);
         add(context, lb, bounds);
         return lb;
     }
-    
-    public static Label createLabelL(Container context, String title, Rectangle bounds) {
-        return createLabelL(context, title, bounds, Label.LEFT);
-    }
-
-    public static Label createLabelL(Container context, String title, Rectangle bounds, int alig) {
-        Label lb = new Label(title);
-        lb.setAlignment(alig);
-        add(context, lb, bounds);
-        return lb;
-    }
-
-    public static void addChoice(Container context, Choice ch, Rectangle bounds, String[] opts, ItemListener escucha) {
+    public static void agregarComboBox(Container context, JComboBox ch,Rectangle bounds, String[] opts, ItemListener escucha) 
+    {
         //recorrer arreglo y añadir items
         for (String s : opts) {
-            ch.add(s);
+            ch.addItem(s);
         }
         //item listener
         ch.addItemListener(escucha);
         add(context, ch, bounds);
     }
 
-    public static Choice createChoice(Container context, Rectangle bounds, String[] opts, ItemListener escucha) {
-        Choice ch = new Choice();
-        addChoice(context, ch, bounds, opts, escucha);
+    public static JComboBox crearComboBox(Container context, Rectangle bounds, String[] opts, ItemListener escucha) 
+    {
+        JComboBox ch = new JComboBox();
+        agregarComboBox(context, ch, bounds, opts, escucha);
         return ch;
     }
-
-    public static void addButton(Container context, Button btn, String accessName, Rectangle bounds, ActionListener listener) {
+    public static void agregarBoton(Container context, JButton btn, String accessName, Rectangle bounds, ActionListener listener) 
+    {
         btn.setActionCommand(accessName);
         btn.addActionListener(listener);
         btn.setBounds(bounds);
-
         add(context, btn, bounds);
     }
 
-    public static Button createButton(Container context, String accessName, Rectangle bounds, ActionListener listener) {
-        Button btn = new Button(accessName);
-        addButton(context, btn, accessName, bounds, listener);
+    public static JButton crearBoton(Container context, String accessName, Rectangle bounds, ActionListener listener) 
+    {
+        JButton btn = new JButton(accessName);
+        agregarBoton(context, btn, accessName, bounds, listener);
         return btn;
     }
-
-    public static ButtonIcon createButtonIcon(Container context, String accessName, Rectangle bounds, ActionListener listener, String imagen) {
-        ButtonIcon btn = new ButtonIcon(imagen);
-        addButton(context, btn, accessName, bounds, listener);
+    public static JButton crearButtonIcon(Container context, String accessName, Rectangle bounds, ActionListener listener, String imagen) 
+    {
+        ImageIcon icon = new ImageIcon(imagen);
+        JButton btn = new JButton(icon);
+        agregarBoton(context, btn, accessName, bounds, listener);
         return btn;
     }
-
-    public static void addCheckBox(Container context, Checkbox chbx, Rectangle bounds, CheckboxGroup group) {
+    public static void agregarCheckBox(Container context, JCheckBox chbx, Rectangle bounds, ButtonGroup group) 
+    {
         add(context, chbx, bounds);
         if (group != null) {
-            chbx.setCheckboxGroup(group);
+            //chbx.setCheckboxGroup(group);
+            group.add(chbx);
         } else {
             //Ops...
         }
     }
-
-    public static Checkbox createCheckbox(Container context, String title, Rectangle bounds, CheckboxGroup group, boolean state) {
-        Checkbox chbx = new Checkbox(title);
-        addCheckBox(context, chbx, bounds, group);
-        chbx.setState(state);
+    public static JCheckBox crearCheckbox(Container context, String title, Rectangle bounds, ButtonGroup group, boolean state) 
+    {
+        JCheckBox chbx = new JCheckBox(title);
+        agregarCheckBox(context, chbx, bounds, group);
+        chbx.setSelected(state);
         return chbx;
     }
-
-    /**
-     *
-     * @param context
-     * @param title
-     * @param bounds
-     * @param group configs[0]
-     * @param state configs[1]
-     * @param escucha configs[2]
-     * @param enabled configs[3]
-     * @param visible configs[4]
-     * @return
-     */
-    public static Checkbox createCheckbox(Container context, String title, Rectangle bounds, Object... configs) {
-        Checkbox rtn = createCheckbox(context, title, bounds, (CheckboxGroup) configs[0], (Boolean) configs[1]);
+    public static JCheckBox crearCheckbox(Container context, String title, Rectangle bounds, Object... configs) 
+    {
+        JCheckBox rtn = crearCheckbox(context, title, bounds, (ButtonGroup) configs[0], (Boolean) configs[1]);
         rtn.addItemListener((ItemListener) configs[2]);
-        /**
-         * Configsextra
-         */
+        
         if (configs.length > 3) {
             rtn.setEnabled((Boolean) configs[3]);
         }
         if (configs.length > 4) {
             rtn.setVisible((Boolean) configs[4]);
         }
-
         return rtn;
     }
-
-    public static void addTextField(Container context, TextField txt, Rectangle bounds) {
+    public static void agregarTextField(Container context, JTextField txt, Rectangle bounds) 
+    {
         add(context, txt, bounds);
-
     }
-
-    /**
-     *
-     * @param context
-     * @param bounds
-     * @return
-     */
-    public static TextField createTextField(Container context, Rectangle bounds, String text, String name, KeyListener list, boolean enable, Object... configs) {
-        TextField txt = new TextField();
+    public static JTextField crearTextField(Container context, Rectangle bounds, String text, String name, KeyListener list, boolean enable, Object... configs) 
+    {
+        JTextField txt = new JTextField();
         txt.addKeyListener(list);          
         try{
-            txt.addFocusListener((CustomFocusListener) configs[0]);
+            txt.addFocusListener((FocusListener) configs[0]);
         }catch(Exception ex){}
         
         txt.setName(name);
@@ -182,7 +125,6 @@ public abstract class Builder {
         txt.setEnabled(enable);
         return txt;
     }
-
     public static void add(Container context, Component cmp, Rectangle bounds) {
         context.add(cmp);
         if (bounds != null) {
@@ -190,8 +132,8 @@ public abstract class Builder {
         }
         cmp.setVisible(true);
     }
-
-    public static void setPositions(Container context, Rectangle[] bounds, Component[] cmp) {
+    public static void setPositions(Container context, Rectangle[] bounds, Component[] cmp) 
+    {
         if (context != null & bounds != null & cmp != null) {
             int i = 0;
             for (Component x : cmp) {
@@ -200,15 +142,13 @@ public abstract class Builder {
             }
         }
     }
-
-    public static Panel createPanel(Container context, Rectangle bounds) {
-        Panel panel = new Panel();
+    public static JPanel crearPanel(Container context, Rectangle bounds) 
+    {
+        JPanel panel = new JPanel();
         add(context, panel, bounds);
         panel.setLayout(null);
         panel.setBounds(bounds);
-        panel.setBackground(Color.LIGHT_GRAY);
-
+        panel.setBackground(java.awt.Color.LIGHT_GRAY);
         return panel;
     }
-
 }
