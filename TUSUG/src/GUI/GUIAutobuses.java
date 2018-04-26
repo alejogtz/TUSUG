@@ -1,6 +1,4 @@
 package GUI;
-import GUI.Builder;
-
 import javax.swing.JFrame;
 
 public class GUIAutobuses extends JFrame{
@@ -10,7 +8,7 @@ public class GUIAutobuses extends JFrame{
         
 //<<<<<<< HEAD
         Builder.construirFrame(this, "Modulo Autobuses", 700, 600, 200, 50, false);
-        Builder.lblImg(this, "/home/gallardo/SistemaTusug/TUSUG/TUSUG/src/Imagenes/logo_tusug.png", 293, 100, 232,99);
+        Builder.lblImg(this, "src/Imagenes/logo_tusug.png", 293, 100, 232,99);
 //=======
         Builder.construirFrame(this, "Modulo Autobuses", 700, 600, 200, 50, true);
         Builder.lblImg(this, "src/Imagenes/logo_tusug.png", 293, 100, 232,99);
