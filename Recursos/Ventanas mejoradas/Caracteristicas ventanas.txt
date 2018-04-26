@@ -363,5 +363,15 @@
 	*Posicion: (495,478).
 	*Tamaño: 40 x 17 px. 
 	
+	>>Boton "expediente".
+	*Posicion: (562,274).
+	*Tamaño: 94 x 22 px.
+	*Color boton: #8F92B1.
 	
+	>>Boton "prima vacacional".
+	*Posicion: (562,303).
+	*Color boton: #8F92B1.
+	*Tamaño: 94 x 22 px.
+	
+
  
