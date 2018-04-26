@@ -19,6 +19,7 @@ public class Builder
         frame.setLocationRelativeTo(null);
         frame.setBackground(java.awt.Color.GRAY);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
         return frame;
     }
     public static JFrame crearFrame(String title, int w, int h, int x, int y, boolean undecorated) 
