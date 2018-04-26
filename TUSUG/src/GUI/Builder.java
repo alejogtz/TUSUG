@@ -45,6 +45,7 @@ public class Builder
     public static void agregarComboBox(Container context, JComboBox ch,Rectangle bounds, String[] opts, ItemListener escucha) 
     {
         //recorrer arreglo y añadir items
+        if(opts != null)
         for (String s : opts) {
             ch.addItem(s);
         }
