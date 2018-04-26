@@ -1,5 +1,5 @@
 
-package Modelo;
+package Datos;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

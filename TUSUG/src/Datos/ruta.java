@@ -1,5 +1,5 @@
 
-package PROYECTOINTEGRADOR;
+package Datos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -1,5 +1,5 @@
 
-package Modelo;
+package Datos;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
