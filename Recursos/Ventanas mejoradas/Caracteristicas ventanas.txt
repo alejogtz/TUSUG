@@ -544,3 +544,93 @@
 	*Tamaño: 80 x 27 px.
 	
  
+ ///////////////VENTANA Secretaria: Mantenimiento y almacén////////////////////
+ NOTA: Componentes que se mantendran estaticos.
+ 
+ >>tamaño ventana = 700 x 600 px.
+	*Fuente: Segoe UI (Componentes de Label).
+	 *Tamaño: 10.
+	
+	>>Logo.
+	*Posicion: (40,20).
+	*Tamaño: 116 x 42 px.
+	
+	>>Posicion de texto de encabezado (ventana): (180,32).
+	 *Fuente: Segoe UI.
+	 *Tamaño: 10.
+	 *Codigo de color de texto (encabezado de la ventana): #07A2B8.
+	 *Codigo de color de texto (JLabels): #5B749D.
+	 
+	 >>Boton minimizar:
+	 *Posicion: (612,33).
+	 *Tamaño: 26 x 26 px.
+	 
+	 >>Boton cerrar:
+	 *Posicion: (652,33).
+	 *Tamaño: 26 x 26 px.
+	
+	>>Boton home:
+	*Posicion: (26,69).
+	*Tamaño: 27 x 27 px.
+	
+	>>Texto inicio:
+	*Posicion: (64,75).
+	*Tamaño: 34 x 17 px.
+	
+	>>Boton cerrar sesion:
+	*Posicion: (547,70).
+	*Tamaño: 23 x 24 px.
+	
+	>>Texto cerrar sesion:
+	*Posicion: (578,73).
+	*Tamaño: 78 x 17.
+	
+	>>Boton actualizar lista:
+	*Posicion: 40 x 527.
+	*Tamaño: 133 x 37.
+	
+	----Componentes propios de la pestaña----
+	
+	>>TextField "Reportes de mantenimiento y el almacen".
+	*Posicion: (309,127).
+	*Tamaño: 261 x 21 px.
+	
+	>>Table tabla.
+	*Posicion: (222,164).
+	*Tamaño: 461 x 364 px.
+	
+	>>Label filtrar.
+	*Posicion: (83,127).
+	*tamaño: 37 x 17 px.
+	
+	>>Label area:
+	*Posicion: (33,183).
+	*tamaño: 32 x 17 px.
+	
+	>>CheckBox mantenimiento.
+	*Posicion: (33,218).
+	*Tamaño texto: 95 x 17 px.
+	
+	>>CheckBox almacen.
+	*Posicion: (33,246).
+	*Tamaño texto: 53 x 17 px.
+	
+	>>CheckBox todos.
+	*Posicion: (33,273).
+	*Tamaño texto: 37 x 17 px.
+	
+	>>Label fecha.
+	*Posicion: (33,307).
+	*Tamaño: 39 x 17.
+	
+	>>CheckBox todos.
+	*Posicion: (33,339).
+	*Tamaño texto: 37 x 17 px.
+	
+	>>CheckBox ultima semana.
+	*Posicion: (33,369).
+	*Tamaño texto: 92 x 17 px.
+	
+	>>CheckBox ultimo mes.
+	*Posicion: ().
+	
