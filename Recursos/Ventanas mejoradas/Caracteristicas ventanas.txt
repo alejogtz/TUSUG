@@ -141,7 +141,8 @@
 	 >>Posicion de texto de encabezado (ventana): (180,32).
 	 *Fuente: Segoe UI.
 	 *Tamaño: 10.
-	 *Codigo de color de texto: #07A2B8.
+	 *Codigo de color de texto (encabezado de la ventana): #07A2B8.
+	 *Codigo de color de texto (JLabels): #5B749D.
 	 
 	 >>Boton minimizar:
 	 *Posicion: (612,33).
