@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class Builder {
@@ -134,6 +135,25 @@ public class Builder {
         return txtField;
     }
 
+    public static JPasswordField crearPasswordField(Container ui, Rectangle bounds, String text, Color cfondo, Color ctexto,
+            Font f, boolean enabled, boolean visible){
+        JPasswordField pass = new JPasswordField(text);
+        ui.add(pass);
+        pass.setBounds(bounds);
+        if (cfondo != null) {
+            pass.setBackground(cfondo);
+        }
+        if (ctexto != null) {
+            pass.setForeground(ctexto);
+        }
+        if (f != null) {
+            pass.setFont(f);
+        }
+        pass.setEnabled(enabled);
+        pass.setVisible(visible);
+        return pass;
+    }
+    
     /**
      * @param ui
      * @param bounds
@@ -149,7 +169,7 @@ public class Builder {
         panel.setOpaque(opaque);        
         return panel;
     }
-
+    
     public static void main(String[] args) {
         JFrame f = new JFrame();
         Builder.buildFrame(f, "@Test", new Rectangle(200, 50, 700, 600), false);
