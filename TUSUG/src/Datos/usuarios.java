@@ -1,4 +1,4 @@
-package access;
+package Datos;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 public class usuarios {
 
-      Conexion c;
+    Conexion c;
     public usuarios(Conexion con){
    c= con;
     }

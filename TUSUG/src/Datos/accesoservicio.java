@@ -1,5 +1,5 @@
 
-package access;
+package Datos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import libray.conexion2;
+//import libray.conexion2;
 
 
 public class accesoservicio {

@@ -11,10 +11,10 @@ public class Conexion{
 	private Conexion(){}
 	
 	public void realizaConexion(){            
-            String urlDatabase =  "jdbc:postgresql://localhost:5433/materias"; 
+            String urlDatabase =  "jdbc:postgresql://localhost:5432/Tusug"; 
             try {
                 Class.forName("org.postgresql.Driver");
-                conn = DriverManager.getConnection(urlDatabase, "postgres", "");
+                conn = DriverManager.getConnection(urlDatabase, "postgres", "root");
             } catch (SQLException e) {
                 System.err.println("Ocurrio un error : "+e.getMessage());
             } catch (ClassNotFoundException ex) {

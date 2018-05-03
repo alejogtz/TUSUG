@@ -1,4 +1,4 @@
-package access;
+package Datos;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import libray.conexion2;
+//import libra.conexion2;
 public class reporte {
   Conexion c;
     
