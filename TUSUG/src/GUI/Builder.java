@@ -104,7 +104,9 @@ public class Builder {
 
     public static JComboBox<String> crearComboBox(Container ui, Rectangle bounds, String[] options,
             ItemListener listener, Color cfondo, Color ctexto) {
-        JComboBox cbox = new JComboBox(options);
+         JComboBox cbox = null;
+        if (options!=null) cbox = new JComboBox(options);
+        else cbox = new JComboBox();
         ui.add(cbox);
         cbox.setBounds(bounds);
         if (ctexto!=null)cbox.setForeground(ctexto);
@@ -154,6 +156,7 @@ public class Builder {
         Builder.crearButtonIcon(f, "Btn1", "src/imagenes/logo_tusug.png", new Rectangle(100, 100, 200, 70), null, true, false);
         Builder.crearTextField(f, new Rectangle(100, 200, 200, 70), null, null, null, null, true, true, true);
         Builder.crearPanel(f, new Rectangle(100, 300, 200, 70),"src/imagenes/logo_tusug.png", false );
+        Builder.crearComboBox(f, new Rectangle(100, 400, 200, 70), null, null, null, null);
     }
 
 }
