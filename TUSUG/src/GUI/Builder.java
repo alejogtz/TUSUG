@@ -3,14 +3,9 @@ package GUI;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -102,8 +97,8 @@ public class Builder {
         JCheckBox cbox = new JCheckBox(text, enabled);
         ui.add(cbox);
         cbox.setBounds(bounds);
-        cbox.setForeground(ctexto);
-        cbox.setBackground(cfondo);
+        if (ctexto!=null)cbox.setForeground(ctexto);
+        if (cfondo!=null)cbox.setBackground(cfondo);
         return cbox;
     }
 
@@ -112,8 +107,8 @@ public class Builder {
         JComboBox cbox = new JComboBox(options);
         ui.add(cbox);
         cbox.setBounds(bounds);
-        cbox.setForeground(ctexto);
-        cbox.setBackground(cfondo);
+        if (ctexto!=null)cbox.setForeground(ctexto);
+        if (cfondo!=null)cbox.setBackground(cfondo);
         return cbox;
     }
 
@@ -147,6 +142,7 @@ public class Builder {
         if (urlImg!=null) panel = new PanelImagen(urlImg);
         else panel = new JPanel();
         ui.add(panel);
+        panel.setLayout(null);
         panel.setBounds(bounds);
         panel.setOpaque(opaque);        
         return panel;
