@@ -16,8 +16,9 @@ public class GUIMantenimientoAlmacen extends JFrame{
     Color grisAzulado = new Color(91,116,157);
     Color magenta = new Color(62,0,0);
     public GUIMantenimientoAlmacen(){
-        Builder.construirFrame(this,"Mantenimiento y Almacen",700,600,300,300,true);
-        JLabel t1 = new JLabel("Reportes de mantenimiento y almacen");
+        Builder.buildFrame(this,"Mantenimiento y Almacen",new Rectangle(300,300,700,600),true);
+        
+        JLabel t1 = Builder.crearLabel(this, "Reportes de Mantenimiento y almacen", bounds, gris, gris)//new JLabel("Reportes de mantenimiento y almacen");
         JLabel t2 = new JLabel("Filtrar");
         JLabel t3 = new JLabel("Area:");
         JLabel t4 = new JLabel("Fecha:");

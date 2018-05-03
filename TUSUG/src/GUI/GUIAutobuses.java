@@ -9,7 +9,7 @@ public class GUIAutobuses extends JFrame{
     
     public GUIAutobuses(){
 
-        this.setVisible(true);
+        inits();
     }
     
     public static void main(String [] args){
@@ -17,7 +17,7 @@ public class GUIAutobuses extends JFrame{
     }
     
     public void inits(){
-        JFrame frame = Builder.construirFrame("Modulo Autobuses", new Rectangle(200, 50, 700, 600), true);
+        Builder.buildFrame(this, "Modulo Autobuses", new Rectangle(200, 50, 700, 600), false);
         JLabel lb_title = Builder.crearLabel(this, "Title", new Rectangle(100,200,50,50), null, null);
         
     }
