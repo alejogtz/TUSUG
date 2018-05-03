@@ -2,6 +2,7 @@ package GUI;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Font;
 import java.awt.Rectangle;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
@@ -12,6 +13,7 @@ import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
 public class Builder {
 
@@ -102,10 +104,27 @@ public class Builder {
         cbox.setBackground(cfondo);
         return cbox;
     }
+    
+    public static JTextField crearTextField(Container ui, Rectangle bounds, String text, Color cfondo, Color ctexto,
+            Font f, boolean editable,boolean enabled, boolean visible){
+        JTextField txtField = new JTextField(text==null?"":text);
+        ui.add(txtField);
+        txtField.setBounds(bounds);        
+        if (cfondo!=null)txtField.setBackground(cfondo);
+        if (ctexto!=null)txtField.setForeground(ctexto);
+        if (f!=null)txtField.setFont(f);
+        txtField.setEnabled(enabled);
+        txtField.setEditable(editable);
+        txtField.setVisible(visible);
+        return txtField;
+    }
+        
+    
     public static void main(String[] args) {
         JFrame f = new JFrame();
         Builder.buildFrame(f, "@Test", new Rectangle(200, 50, 700, 600), false);
         Builder.crearButtonIcon(f, "Btn1" , "src/imagenes/logo_tusug.png", new Rectangle(100, 100, 200, 70), null, true, false);
+        Builder.crearTextField(f, new Rectangle(100, 200, 200, 70), null, null, null,null, true, true, true);
     }
 
 }
