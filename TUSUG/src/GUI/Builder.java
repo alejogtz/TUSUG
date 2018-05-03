@@ -3,14 +3,9 @@ package GUI;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -102,18 +97,20 @@ public class Builder {
         JCheckBox cbox = new JCheckBox(text, enabled);
         ui.add(cbox);
         cbox.setBounds(bounds);
-        cbox.setForeground(ctexto);
-        cbox.setBackground(cfondo);
+        if (ctexto!=null)cbox.setForeground(ctexto);
+        if (cfondo!=null)cbox.setBackground(cfondo);
         return cbox;
     }
 
     public static JComboBox<String> crearComboBox(Container ui, Rectangle bounds, String[] options,
             ItemListener listener, Color cfondo, Color ctexto) {
-        JComboBox cbox = new JComboBox(options);
+         JComboBox cbox = null;
+        if (options!=null) cbox = new JComboBox(options);
+        else cbox = new JComboBox();
         ui.add(cbox);
         cbox.setBounds(bounds);
-        cbox.setForeground(ctexto);
-        cbox.setBackground(cfondo);
+        if (ctexto!=null)cbox.setForeground(ctexto);
+        if (cfondo!=null)cbox.setBackground(cfondo);
         return cbox;
     }
 
@@ -147,6 +144,7 @@ public class Builder {
         if (urlImg!=null) panel = new PanelImagen(urlImg);
         else panel = new JPanel();
         ui.add(panel);
+        panel.setLayout(null);
         panel.setBounds(bounds);
         panel.setOpaque(opaque);        
         return panel;
@@ -158,6 +156,7 @@ public class Builder {
         Builder.crearButtonIcon(f, "Btn1", "src/imagenes/logo_tusug.png", new Rectangle(100, 100, 200, 70), null, true, false);
         Builder.crearTextField(f, new Rectangle(100, 200, 200, 70), null, null, null, null, true, true, true);
         Builder.crearPanel(f, new Rectangle(100, 300, 200, 70),"src/imagenes/logo_tusug.png", false );
+        Builder.crearComboBox(f, new Rectangle(100, 400, 200, 70), null, null, null, null);
     }
 
 }
