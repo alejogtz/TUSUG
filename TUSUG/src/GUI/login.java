@@ -17,14 +17,14 @@ public class login {
     JButton b;
 
     public login() {
-        x = Builder.construirFrame("NULL", new Rectangle(0, 0, 700, 600), true);
-        p = Builder.crearPanel(x, new Rectangle(0, 0, 700, 600), "src/Imagenes/login.png", false);
+        x = Builder.construirFrame("NULL", new Rectangle(0, 0, 700, 600), false);
+        p = Builder.crearPanel(x, new Rectangle(0, 0, 700, 600), "src/Imagenes/login.png", true);
 
-        jt = Builder.crearTextField(p, new Rectangle(190, 231, 293, 38), "", null, null, null, true, true, true);
+        jt = Builder.crearTextField(p, new Rectangle(205,233, 293,38), "", null, null, null, true, true, true);
 
-        jt2 = Builder.crearTextField(p, new Rectangle(190, 231, 293, 38), "", null, null, null, true, true, true);
+        jt2 = Builder.crearTextField(p, new Rectangle(205,298, 293,38), "", null, null, null, true, true, true);
 
-        b = Builder.crearBoton(p, "Ingresar", new Rectangle(257, 380, 185, 39), null, false, false);
+        b = Builder.crearBoton(p, "Ingresar", new Rectangle(257,383, 185,39), null, false, false);
 
     }
 
