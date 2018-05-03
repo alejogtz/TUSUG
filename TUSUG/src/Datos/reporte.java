@@ -9,14 +9,12 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import Datos.conexion2;
+//import libra.conexion2;
 public class reporte {
-    conexion2 c2= new conexion2();
-    Connection cn=c2.connectDatabase();
+  Conexion c;
     
-    public reporte(){
-    conexion2 c2= new conexion2();
-    Connection cn=c2.connectDatabase();
+    public reporte(Conexion con){
+   c= con;
     }
     
      public void cargar(){
@@ -25,7 +23,7 @@ public class reporte {
 
         String cons="select * from sistemaTusug.reporte" ;
         
-            Statement st= cn.createStatement();
+            Statement st= c.getConexion().createStatement();
             ResultSet rs = st.executeQuery(cons);
             while(rs.next()){
                 registros[0]=rs.getString(1);
@@ -55,7 +53,7 @@ public class reporte {
     try{
          PreparedStatement pst  = null;
      
-         pst  = cn.prepareStatement(sql);
+         pst  = c.getConexion().prepareStatement(sql);
          pst.setDate(1, Date.valueOf(fecha));
          pst.setInt(2, folio);
          pst.setString(3, url_formato);
@@ -76,7 +74,7 @@ public class reporte {
     public void borrar(int x){
     try
 {
- Statement st= cn.createStatement();
+ Statement st= c.getConexion().createStatement();
 String sql;
 sql="delete * from sistemaTusug.reporte ";
 st.executeUpdate(sql);
@@ -94,7 +92,7 @@ throws SQLException
       
     // create our java preparedstatement using a sql update query
     PreparedStatement ps =null;
-    ps=cn.prepareStatement(
+    ps=c.getConexion().prepareStatement(
       "UPDATE sistemaTusug.reporte SET url_formato = ?, tipo_reporte = ? WHERE folio = ?");
 
     // set the preparedstatement parameters

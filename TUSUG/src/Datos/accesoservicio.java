@@ -9,16 +9,14 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import Datos.conexion2;
+//import libray.conexion2;
 
 
 public class accesoservicio {
-    conexion2 c2= new conexion2();
-    Connection cn=c2.connectDatabase();
-    
-    public accesoservicio(){
-    conexion2 c2= new conexion2();
-    Connection cn=c2.connectDatabase();
+
+      Conexion c;
+    public accesoservicio(Conexion con){
+    c= con;
     }
     
      public void cargar(){
@@ -29,7 +27,7 @@ public class accesoservicio {
 
         String cons="select * from sistemaTusug.servicio" ;
         
-            Statement st= cn.createStatement();
+            Statement st= c.getConexion().createStatement();
             ResultSet rs = st.executeQuery(cons);
             while(rs.next()){
                 registros[0]=rs.getString(1);
@@ -60,7 +58,7 @@ public class accesoservicio {
     try{
          PreparedStatement pst  = null;
      
-         pst  = cn.prepareStatement(sql);
+         pst  = c.getConexion().prepareStatement(sql);
          pst.setInt(1, id_s);
          pst.setInt(2, cod_m);
          pst.setInt(3, cod_p);
@@ -81,7 +79,7 @@ public class accesoservicio {
     public void borrar(int x){
     try
 {
- Statement st= cn.createStatement();
+ Statement st= c.getConexion().createStatement();
 String sql;
 sql="delete * from sistemaTusug.servicio ";
 st.executeUpdate(sql);
@@ -99,7 +97,7 @@ throws SQLException
       
     // create our java preparedstatement using a sql update query
     PreparedStatement ps =null;
-    ps=cn.prepareStatement(
+    ps=c.getConexion().prepareStatement(
       "UPDATE sistemaTusug.servicio SET codigo_producto = ?, cantidad_producto = ? WHERE id_servicio = ?");
 
     // set the preparedstatement parameters

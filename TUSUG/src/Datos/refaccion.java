@@ -9,14 +9,12 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import Datos.conexion2;
+//import libray.conexion2;
 
 public class refaccion {
-    conexion2 c2= new conexion2();
-    Connection cn=c2.connectDatabase();
-    
-    public refaccion(){
-
+  Conexion c;
+    public refaccion(Conexion con){
+  c= con;
     }
     
      public void cargar(){
@@ -25,7 +23,7 @@ public class refaccion {
 
         String cons="select * from sistemaTusug.refaccion" ;
         
-            Statement st= cn.createStatement();
+            Statement st= c.getConexion().createStatement();
             ResultSet rs = st.executeQuery(cons);
             while(rs.next()){
                 registros[0]=rs.getString(1);
@@ -54,7 +52,7 @@ public class refaccion {
     try{
          PreparedStatement pst  = null;
      
-         pst  = cn.prepareStatement(sql);
+         pst  = c.getConexion().prepareStatement(sql);
          pst.setInt(1, codigo_producto);
          pst.setString(2, descripcion_producto);
          pst.setInt(3, cantidad_producto);
@@ -75,7 +73,7 @@ public class refaccion {
     public void borrar(int x){
     try
 {
- Statement st= cn.createStatement();
+ Statement st= c.getConexion().createStatement();
 String sql;
 sql="delete * from sistemaTusug.refaccion";
 st.executeUpdate(sql);
@@ -93,7 +91,7 @@ throws SQLException
       
     // create our java preparedstatement using a sql update query
     PreparedStatement ps =null;
-    ps=cn.prepareStatement(
+    ps=c.getConexion().prepareStatement(
       "UPDATE sistemaTusug.refaccion SET descripcion_producto = ?, cantidad_producto = ? WHERE codigo_producto = ?");
 
     // set the preparedstatement parameters

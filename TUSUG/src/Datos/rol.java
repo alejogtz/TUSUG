@@ -7,13 +7,12 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import Datos.conexion2;
+//import libray.conexion2;
 public class rol {
-     conexion2 c2= new conexion2();
-    Connection cn=c2.connectDatabase();
+    Conexion c;
     
-    public rol(){
-
+    public rol(Conexion con){
+  c= con;
     }
     
      public void cargar(){
@@ -22,7 +21,7 @@ public class rol {
 
         String cons="select * from sistemaTusug.rol" ;
         
-            Statement st= cn.createStatement();
+            Statement st= c.getConexion().createStatement();
             ResultSet rs = st.executeQuery(cons);
             while(rs.next()){
                 registros[0]=rs.getString(1);
@@ -51,7 +50,7 @@ public class rol {
     try{
          PreparedStatement pst  = null;
      
-         pst  = cn.prepareStatement(sql);
+         pst  = c.getConexion().prepareStatement(sql);
          pst.setInt(1, id_rol);
          pst.setString(2, descripcion);
          pst.setString(3, nivel);
@@ -69,7 +68,7 @@ public class rol {
     public void borrar(int x){
     try
 {
- Statement st= cn.createStatement();
+ Statement st= c.getConexion().createStatement();
 String sql;
 sql="delete * from sistemaTusug.rol";
 st.executeUpdate(sql);
@@ -87,7 +86,7 @@ throws SQLException
       
     // create our java preparedstatement using a sql update query
     PreparedStatement ps =null;
-    ps=cn.prepareStatement(
+    ps=c.getConexion().prepareStatement(
       "UPDATE sistemaTusug.rol SET descripcion = ?, nivel = ? WHERE id_rol = ?");
 
     // set the preparedstatement parameters

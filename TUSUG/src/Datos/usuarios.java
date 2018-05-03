@@ -1,6 +1,5 @@
 package Datos;
 
-import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,14 +8,11 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import Datos.conexion2;
 public class usuarios {
-    conexion2 c2= new conexion2();
-  Connection cn=c2.connectDatabase();
-    
-    public usuarios(){
-    conexion2 c2= new conexion2();
-    Connection cn=c2.connectDatabase();
+
+    Conexion c;
+    public usuarios(Conexion con){
+   c= con;
     }
     
      public void cargar(){
@@ -25,7 +21,7 @@ public class usuarios {
         String [] registros= new String[5];
         String cons="select * from sistemaTusug.usuario" ;
         
-            Statement st= cn.createStatement();
+            Statement st= c.getConexion().createStatement();
             ResultSet rs = st.executeQuery(cons);
             while(rs.next()){
                 registros[0]=rs.getString(1);
@@ -54,7 +50,7 @@ public class usuarios {
     try{
          PreparedStatement pst  = null;
      
-         pst  = cn.prepareStatement(sql);
+         pst  = c.getConexion().prepareStatement(sql);
          pst.setInt(1, rfc);
          pst.setInt(2, id_rol);
          pst.setString(3, contrasenia);
@@ -75,7 +71,7 @@ public class usuarios {
     public void borrar(int x){
     try
 {
- Statement st= cn.createStatement();
+ Statement st= c.getConexion().createStatement();
 String sql;
 sql="delete * from sistemaTusug.usuario";
 st.executeUpdate(sql);
@@ -93,7 +89,7 @@ throws SQLException
       
     // create our java preparedstatement using a sql update query
     PreparedStatement ps =null;
-    ps=cn.prepareStatement(
+    ps=c.getConexion().prepareStatement(
       "UPDATE sistemaTusug.usuario SET contrasenia = ?, url_image = ? WHERE id_rol= ?");
 
     // set the preparedstatement parameters

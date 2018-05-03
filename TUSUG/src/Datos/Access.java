@@ -7,19 +7,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import Datos.conexion2;
 
 
 public class Access {
-  conexion2 c2= new conexion2();
-  Connection cn=c2.connectDatabase();
+  Conexion c;
     
-    public Access(){
-    conexion2 c2= new conexion2();
-    Connection cn=c2.connectDatabase();
+    public Access(Conexion con){
+     c= con;
     }
     
      public void cargar(){
@@ -28,7 +26,7 @@ public class Access {
 
         String cons="select * from sistemaTusug.mantenimiento" ;
         
-            Statement st= cn.createStatement();
+            Statement st= c.getConexion().createStatement();
             ResultSet rs = st.executeQuery(cons);
             while(rs.next()){
                 registros[0]=rs.getString(1);
@@ -58,7 +56,7 @@ public class Access {
     try{
          PreparedStatement pst  = null;
      
-         pst  = cn.prepareStatement(sql);
+         pst  =  c.getConexion().prepareStatement(sql);
          pst.setInt(1, codm);
          pst.setInt(2, coda);
          pst.setDate(3, Date.valueOf(fechi));
@@ -79,7 +77,7 @@ public class Access {
     public void borrar(int x){
     try
 {
- Statement st= cn.createStatement();
+ Statement st=  c.getConexion().createStatement();
 String sql;
 sql="delete * from sistemaTusug.mantenimiento where codigo_m =" +x+";";
 st.executeUpdate(sql);
@@ -96,7 +94,7 @@ throws SQLException
   {
       
     PreparedStatement ps =null;
-    ps=cn.prepareStatement(
+    ps= c.getConexion().prepareStatement(
       "UPDATE sistemaTusug.mantenimiento SET codigo_m = ?, codigo_autobus = ? WHERE codigo_autobus = ?");
 
     ps.setInt(1,codigo_m);
