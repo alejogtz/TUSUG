@@ -13,11 +13,12 @@ import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Builder {
 
-    public static void buildFrame(JFrame r,String title, Rectangle bounds, boolean undecorated){
+    public static void buildFrame(JFrame r, String title, Rectangle bounds, boolean undecorated) {
         r.setBounds(bounds);
         r.setResizable(false);
         r.setLayout(null);
@@ -27,6 +28,7 @@ public class Builder {
         r.setUndecorated(undecorated);
         r.setVisible(true);
     }
+
     public static JFrame construirFrame(String title, Rectangle bounds, boolean undecorated) {
         JFrame r = new JFrame(title);
         r.setBounds(bounds);
@@ -63,68 +65,98 @@ public class Builder {
     }
 
     public static JButton crearBoton(Container context, String accessName, Rectangle bounds,
-            ActionListener listener, boolean enabled, boolean border){
-        JButton btn = new JButton(accessName);        
+            ActionListener listener, boolean enabled, boolean border) {
+        JButton btn = new JButton(accessName);
         btn.setActionCommand(accessName);
         btn.addActionListener(listener);
         context.add(btn);
         btn.setBounds(bounds);
-        if (!border)btn.setBorder(null);
+        if (!border) {
+            btn.setBorder(null);
+        }
         return btn;
     }
+
     public static JButton crearButtonIcon(Container ui, String accessName, String urlimg, Rectangle bounds,
-            ActionListener listener, boolean enabled, boolean border){
+            ActionListener listener, boolean enabled, boolean border) {
         Icon icono = new ImageIcon(urlimg);
         JButton btn = new JButton(icono);
         btn.setActionCommand(accessName);
         btn.addActionListener(listener);
         ui.add(btn);
         btn.setBounds(bounds);
-        if (!border)btn.setBorder(null);
+        if (!border) {
+            btn.setBorder(null);
+        }
         return btn;
-        
+
     }
 
     public static JCheckBox crearCheckBox(Container ui, Rectangle bounds, String text,
-            ItemListener listener,boolean enabled, Color cfondo, Color ctexto) {
+            ItemListener listener, boolean enabled, Color cfondo, Color ctexto) {
         JCheckBox cbox = new JCheckBox(text, enabled);
         ui.add(cbox);
         cbox.setBounds(bounds);
-        cbox.setForeground(ctexto);
-        cbox.setBackground(cfondo);
+        if (ctexto!=null)cbox.setForeground(ctexto);
+        if (cfondo!=null)cbox.setBackground(cfondo);
         return cbox;
     }
 
     public static JComboBox<String> crearComboBox(Container ui, Rectangle bounds, String[] options,
             ItemListener listener, Color cfondo, Color ctexto) {
-        JComboBox cbox = new JComboBox(options);
+         JComboBox cbox = null;
+        if (options!=null) cbox = new JComboBox(options);
+        else cbox = new JComboBox();
         ui.add(cbox);
         cbox.setBounds(bounds);
-        cbox.setForeground(ctexto);
-        cbox.setBackground(cfondo);
+        if (ctexto!=null)cbox.setForeground(ctexto);
+        if (cfondo!=null)cbox.setBackground(cfondo);
         return cbox;
     }
-    
+
     public static JTextField crearTextField(Container ui, Rectangle bounds, String text, Color cfondo, Color ctexto,
-            Font f, boolean editable,boolean enabled, boolean visible){
-        JTextField txtField = new JTextField(text==null?"":text);
+            Font f, boolean editable, boolean enabled, boolean visible) {
+        JTextField txtField = new JTextField(text == null ? "" : text);
         ui.add(txtField);
-        txtField.setBounds(bounds);        
-        if (cfondo!=null)txtField.setBackground(cfondo);
-        if (ctexto!=null)txtField.setForeground(ctexto);
-        if (f!=null)txtField.setFont(f);
+        txtField.setBounds(bounds);
+        if (cfondo != null) {
+            txtField.setBackground(cfondo);
+        }
+        if (ctexto != null) {
+            txtField.setForeground(ctexto);
+        }
+        if (f != null) {
+            txtField.setFont(f);
+        }
         txtField.setEnabled(enabled);
         txtField.setEditable(editable);
         txtField.setVisible(visible);
         return txtField;
     }
-        
-    
+
+    /**
+     * @param ui
+     * @param bounds
+     * @param
+     */
+    public static JPanel crearPanel(Container ui, Rectangle bounds, String urlImg, boolean opaque) {
+        JPanel panel = null;
+        if (urlImg!=null) panel = new PanelImagen(urlImg);
+        else panel = new JPanel();
+        ui.add(panel);
+        panel.setLayout(null);
+        panel.setBounds(bounds);
+        panel.setOpaque(opaque);        
+        return panel;
+    }
+
     public static void main(String[] args) {
         JFrame f = new JFrame();
         Builder.buildFrame(f, "@Test", new Rectangle(200, 50, 700, 600), false);
-        Builder.crearButtonIcon(f, "Btn1" , "src/imagenes/logo_tusug.png", new Rectangle(100, 100, 200, 70), null, true, false);
-        Builder.crearTextField(f, new Rectangle(100, 200, 200, 70), null, null, null,null, true, true, true);
+        Builder.crearButtonIcon(f, "Btn1", "src/imagenes/logo_tusug.png", new Rectangle(100, 100, 200, 70), null, true, false);
+        Builder.crearTextField(f, new Rectangle(100, 200, 200, 70), null, null, null, null, true, true, true);
+        Builder.crearPanel(f, new Rectangle(100, 300, 200, 70),"src/imagenes/logo_tusug.png", false );
+        Builder.crearComboBox(f, new Rectangle(100, 400, 200, 70), null, null, null, null);
     }
 
 }
