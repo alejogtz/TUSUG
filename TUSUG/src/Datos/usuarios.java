@@ -1,7 +1,6 @@
-
 package access;
 
-import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,23 +8,18 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import libray.conexion2;
-
-
-public class accesoservicio {
+public class usuarios {
 
       Conexion c;
-    public accesoservicio(Conexion con){
-    c= con;
+    public usuarios(Conexion con){
+   c= con;
     }
     
      public void cargar(){
      try{
-          //String [] titulos={"codigo_m","codigo_autobus","fecha_ingreso","fecha_salida","costo_reparacion"};
-          String [] registros= new String[4];
-          //model=new DefaultTableModel(null,titulos);
-
-        String cons="select * from sistemaTusug.servicio" ;
+          
+        String [] registros= new String[5];
+        String cons="select * from sistemaTusug.usuario" ;
         
             Statement st= c.getConexion().createStatement();
             ResultSet rs = st.executeQuery(cons);
@@ -39,9 +33,7 @@ public class accesoservicio {
                 registros[3]=rs.getString(4);
                 System.out.print(registros[3]);
                 registros[4]=rs.getString(5);
-                System.out.println(registros[4]);
-               // model.addRow(registros);
-                
+                System.out.println(registros[4]);                
             }
             
      }catch(Exception e){
@@ -52,18 +44,18 @@ public class accesoservicio {
 
    
     
-    public void insert(int id_s,int cod_m, int cod_p, int can_p ){
+    public void insert(int rfc,int id_rol, String contrasenia, String url_image, String uti_vez){
      
-    String sql="insert into sistemaTusug.servicio (id_servicio, codigo_m, codigo_producto, cantidad_producto) values (?,?,?,?)";
+    String sql="insert into sistemaTusug.mantenimiento (rfc,id_rol,contrasenia,url_image,uti_vez ) values (?,?,?,?,?)";
     try{
          PreparedStatement pst  = null;
      
          pst  = c.getConexion().prepareStatement(sql);
-         pst.setInt(1, id_s);
-         pst.setInt(2, cod_m);
-         pst.setInt(3, cod_p);
-         pst.setInt(4, can_p);
-        
+         pst.setInt(1, rfc);
+         pst.setInt(2, id_rol);
+         pst.setString(3, contrasenia);
+         pst.setString(4, url_image);
+         pst.setDate(5, Date.valueOf(uti_vez));
          
          int n=pst.executeUpdate();
          if(n>0){
@@ -81,7 +73,7 @@ public class accesoservicio {
 {
  Statement st= c.getConexion().createStatement();
 String sql;
-sql="delete * from sistemaTusug.servicio ";
+sql="delete * from sistemaTusug.usuario";
 st.executeUpdate(sql);
 
 }
@@ -89,7 +81,7 @@ catch(Exception e){}
 
 }
   //update
-public  void update (int codigo_producto,int cantidad_producto,int id_servicio)
+public  void update (String contrasenia,String url_image,int id_rol)
 throws SQLException
 {
   try
@@ -98,12 +90,12 @@ throws SQLException
     // create our java preparedstatement using a sql update query
     PreparedStatement ps =null;
     ps=c.getConexion().prepareStatement(
-      "UPDATE sistemaTusug.servicio SET codigo_producto = ?, cantidad_producto = ? WHERE id_servicio = ?");
+      "UPDATE sistemaTusug.usuario SET contrasenia = ?, url_image = ? WHERE id_rol= ?");
 
     // set the preparedstatement parameters
-    ps.setInt(1,codigo_producto);
-    ps.setInt(2,cantidad_producto);
-    ps.setInt(3,id_servicio);
+    ps.setString(1,contrasenia);
+    ps.setString(2,url_image);
+    ps.setInt(3,id_rol);
   
 
     // call executeUpdate to execute our sql update statement
@@ -118,4 +110,5 @@ throws SQLException
 }
     
 
+    
 }

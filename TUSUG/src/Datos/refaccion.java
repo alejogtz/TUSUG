@@ -11,21 +11,17 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import libray.conexion2;
 
-
-public class accesoservicio {
-
-      Conexion c;
-    public accesoservicio(Conexion con){
-    c= con;
+public class refaccion {
+  Conexion c;
+    public refaccion(Conexion con){
+  c= con;
     }
     
      public void cargar(){
      try{
-          //String [] titulos={"codigo_m","codigo_autobus","fecha_ingreso","fecha_salida","costo_reparacion"};
-          String [] registros= new String[4];
-          //model=new DefaultTableModel(null,titulos);
+          String [] registros= new String[3];
 
-        String cons="select * from sistemaTusug.servicio" ;
+        String cons="select * from sistemaTusug.refaccion" ;
         
             Statement st= c.getConexion().createStatement();
             ResultSet rs = st.executeQuery(cons);
@@ -38,9 +34,7 @@ public class accesoservicio {
                 System.out.print(registros[2]);
                 registros[3]=rs.getString(4);
                 System.out.print(registros[3]);
-                registros[4]=rs.getString(5);
-                System.out.println(registros[4]);
-               // model.addRow(registros);
+                
                 
             }
             
@@ -52,17 +46,17 @@ public class accesoservicio {
 
    
     
-    public void insert(int id_s,int cod_m, int cod_p, int can_p ){
+    public void insert(int codigo_producto,String descripcion_producto, int cantidad_producto ){
      
-    String sql="insert into sistemaTusug.servicio (id_servicio, codigo_m, codigo_producto, cantidad_producto) values (?,?,?,?)";
+    String sql="insert into sistemaTusug.refaccion (codigo_producto, descripcion_producto, cantidad_producto) values (?,?,?)";
     try{
          PreparedStatement pst  = null;
      
          pst  = c.getConexion().prepareStatement(sql);
-         pst.setInt(1, id_s);
-         pst.setInt(2, cod_m);
-         pst.setInt(3, cod_p);
-         pst.setInt(4, can_p);
+         pst.setInt(1, codigo_producto);
+         pst.setString(2, descripcion_producto);
+         pst.setInt(3, cantidad_producto);
+         
         
          
          int n=pst.executeUpdate();
@@ -81,7 +75,7 @@ public class accesoservicio {
 {
  Statement st= c.getConexion().createStatement();
 String sql;
-sql="delete * from sistemaTusug.servicio ";
+sql="delete * from sistemaTusug.refaccion";
 st.executeUpdate(sql);
 
 }
@@ -89,7 +83,7 @@ catch(Exception e){}
 
 }
   //update
-public  void update (int codigo_producto,int cantidad_producto,int id_servicio)
+public  void update (int cantidad_producto, String descripcion_producto,int codigo_producto)
 throws SQLException
 {
   try
@@ -98,12 +92,13 @@ throws SQLException
     // create our java preparedstatement using a sql update query
     PreparedStatement ps =null;
     ps=c.getConexion().prepareStatement(
-      "UPDATE sistemaTusug.servicio SET codigo_producto = ?, cantidad_producto = ? WHERE id_servicio = ?");
+      "UPDATE sistemaTusug.refaccion SET descripcion_producto = ?, cantidad_producto = ? WHERE codigo_producto = ?");
 
     // set the preparedstatement parameters
-    ps.setInt(1,codigo_producto);
-    ps.setInt(2,cantidad_producto);
-    ps.setInt(3,id_servicio);
+    ps.setInt(1,cantidad_producto);
+    ps.setString(2, descripcion_producto);
+    ps.setInt(3,codigo_producto);
+   
   
 
     // call executeUpdate to execute our sql update statement
@@ -115,7 +110,5 @@ throws SQLException
     // log the exception
     throw se;
   }
-}
-    
-
+ } 
 }

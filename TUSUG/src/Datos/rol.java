@@ -1,6 +1,4 @@
-
 package access;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,22 +8,18 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import libray.conexion2;
-
-
-public class accesoservicio {
-
-      Conexion c;
-    public accesoservicio(Conexion con){
-    c= con;
+public class rol {
+    Conexion c;
+    
+    public rol(Conexion con){
+  c= con;
     }
     
      public void cargar(){
      try{
-          //String [] titulos={"codigo_m","codigo_autobus","fecha_ingreso","fecha_salida","costo_reparacion"};
-          String [] registros= new String[4];
-          //model=new DefaultTableModel(null,titulos);
+          String [] registros= new String[3];
 
-        String cons="select * from sistemaTusug.servicio" ;
+        String cons="select * from sistemaTusug.rol" ;
         
             Statement st= c.getConexion().createStatement();
             ResultSet rs = st.executeQuery(cons);
@@ -38,9 +32,7 @@ public class accesoservicio {
                 System.out.print(registros[2]);
                 registros[3]=rs.getString(4);
                 System.out.print(registros[3]);
-                registros[4]=rs.getString(5);
-                System.out.println(registros[4]);
-               // model.addRow(registros);
+                
                 
             }
             
@@ -52,19 +44,16 @@ public class accesoservicio {
 
    
     
-    public void insert(int id_s,int cod_m, int cod_p, int can_p ){
+    public void insert(int id_rol,String descripcion, String nivel){
      
-    String sql="insert into sistemaTusug.servicio (id_servicio, codigo_m, codigo_producto, cantidad_producto) values (?,?,?,?)";
+    String sql="insert into sistemaTusug.rol (codigo_producto, descripcion_producto, cantidad_producto) values (?,?,?)";
     try{
          PreparedStatement pst  = null;
      
          pst  = c.getConexion().prepareStatement(sql);
-         pst.setInt(1, id_s);
-         pst.setInt(2, cod_m);
-         pst.setInt(3, cod_p);
-         pst.setInt(4, can_p);
-        
-         
+         pst.setInt(1, id_rol);
+         pst.setString(2, descripcion);
+         pst.setString(3, nivel);
          int n=pst.executeUpdate();
          if(n>0){
          JOptionPane.showMessageDialog(null, "Registro Guardado con Exito");
@@ -81,7 +70,7 @@ public class accesoservicio {
 {
  Statement st= c.getConexion().createStatement();
 String sql;
-sql="delete * from sistemaTusug.servicio ";
+sql="delete * from sistemaTusug.rol";
 st.executeUpdate(sql);
 
 }
@@ -89,7 +78,7 @@ catch(Exception e){}
 
 }
   //update
-public  void update (int codigo_producto,int cantidad_producto,int id_servicio)
+public  void update (String nivel, String descripcion,int id_rol)
 throws SQLException
 {
   try
@@ -98,12 +87,13 @@ throws SQLException
     // create our java preparedstatement using a sql update query
     PreparedStatement ps =null;
     ps=c.getConexion().prepareStatement(
-      "UPDATE sistemaTusug.servicio SET codigo_producto = ?, cantidad_producto = ? WHERE id_servicio = ?");
+      "UPDATE sistemaTusug.rol SET descripcion = ?, nivel = ? WHERE id_rol = ?");
 
     // set the preparedstatement parameters
-    ps.setInt(1,codigo_producto);
-    ps.setInt(2,cantidad_producto);
-    ps.setInt(3,id_servicio);
+    ps.setString(1,descripcion);
+    ps.setString(2, nivel);
+    ps.setInt(3,id_rol);
+   
   
 
     // call executeUpdate to execute our sql update statement
@@ -115,7 +105,5 @@ throws SQLException
     // log the exception
     throw se;
   }
-}
-    
-
+}   
 }
