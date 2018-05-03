@@ -1,5 +1,5 @@
 
-package Vista;
+package GUI;
 
 import javax.swing.JFrame;
 import GUI.Builder;
