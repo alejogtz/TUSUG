@@ -1,7 +1,5 @@
 
 import GUI.Builder;
-import GUI.PanelImagen;
-import java.awt.Color;
 import java.awt.Rectangle;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,7 +7,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class login {
-
     JFrame x;
     JPanel p;
     JTextField jt;
