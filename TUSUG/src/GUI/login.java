@@ -33,8 +33,6 @@ public class login {
         } catch (Exception ex) {
             Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
         return  valid;
     }
     
