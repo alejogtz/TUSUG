@@ -645,3 +645,57 @@
 	>>Boton "abrir en excel".
 	*Posicion: (539,544).
 	*Tamaño: 136 x 27 px.
+	
+	
+	/////////////////////////////////////VENTANA MENU USUARIO ROOT//////////////////////////////////////
+	Tamaño de la ventana: 700 x 494 px.
+	
+	
+	>>COMPONENTES:
+	>Boton "Trabajadores".
+	*Posicion: (13,205).
+	*Tamaño: 117 x 17 px.
+	
+	> Boton autobuses.
+	*Posicion: (13 x 291).
+	*Tamaño: 117 x 17 px.
+	
+	NOTA: No estuve muy seguro si de pones "Rutas" debido a que no se ha programado esa ventana en forma.
+	Asi que se puede omitir o poner a modo de adorno para mas tarde implementarse.
+	
+	>Boton rutas.
+	*Posicion: (13,370).
+	*Tamaño: 117 x 27 px.
+	
+	>Boton listarTodos (trabajadores)
+	*Posicion: (290 ,211).
+	*Tamaño: 105 x 27 px.
+	
+	>Boton listarTodos (autobuses)
+	*Posicion: (290 ,292).
+	*Tamaño: 105 x 27 px.
+	
+	>Boton visualizarRutas
+	*Posicion: (290 ,371).
+	*Tamaño: 105 x 27 px.
+	
+	>Boton listarActivos
+	*Posicion: (416 ,211).
+	*Tamaño: 125 x 27 px.
+	
+	>Boton checarMantenimiento.
+	*Posicion: (406 ,289).
+	*Tamaño: 145 x 34 px.
+	
+	>Boton agregarNuevaRuta
+	*Posicion: (416 ,371).
+	*Tamaño: 125 x 27 px.
+	
+	>Boton listarInactivos
+	*Posicion: (561 ,211).
+	*Tamaño: 115 x 27 px.
+	
+	>Boton verFacturas
+	*Posicion: (561 ,292).
+	*Tamaño: 115 x 27 px.
+	
