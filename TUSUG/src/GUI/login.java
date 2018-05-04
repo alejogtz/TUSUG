@@ -53,8 +53,11 @@ public class login {
             switch(comando){
                 case "Ingresar":
                     if (validarUsuario(txt_rfc.getText(), txt_password.getText())){
-                        //Code here:
-                        System.err.println("Button 1");
+                         //Code para mostrar la siguiente ventana
+                    }else {
+                        //System.err.println("Error de contraseña o de usuario");
+                        //En base al requerimiento notificar al usuario de un error de usuario
+                        //o de contraseña
                     }
                 break;
             }

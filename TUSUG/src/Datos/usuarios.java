@@ -47,15 +47,13 @@ public class usuarios {
     public String getPassword(String rfc) {
         String pass = null;
         try {
-
-            String con = "select contrasenia from sistemaTusug.usuario where rfc=" + rfc;
+            String con = "select contrasenia from sistemaTusug.usuario where rfc like '" + rfc + "'";
             Statement st = c.getConexion().createStatement();
             ResultSet rs = st.executeQuery(con);
-
-            pass = rs.getString(1);
-
+            if (rs.next()) pass = rs.getString(0);
+            else pass = "NULL";
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
         return pass;
     }
