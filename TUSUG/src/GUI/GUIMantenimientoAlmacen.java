@@ -1,8 +1,6 @@
-
 package GUI;
 
 import javax.swing.JFrame;
-import GUI.Builder;
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
