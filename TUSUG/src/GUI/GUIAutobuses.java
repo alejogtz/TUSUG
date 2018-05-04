@@ -3,9 +3,11 @@ import java.awt.Color;
 import java.awt.Rectangle;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 public class GUIAutobuses extends JFrame{
     private static ControladorAutobuses controlador;
+    public JTextField txtnombre;
     
     public GUIAutobuses(){
 
@@ -14,6 +16,7 @@ public class GUIAutobuses extends JFrame{
     
     public static void main(String [] args){
         new GUIAutobuses();
+        controlador.ingresar();
     }
     
     public void inits(){
