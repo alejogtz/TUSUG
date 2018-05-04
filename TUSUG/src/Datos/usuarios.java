@@ -40,6 +40,23 @@ public class usuarios {
                 System.out.println(e.getMessage());
                  }
  }
+        public String getPassword(int rfc){
+            String pass=null;
+     try{
+         
+         String con ="select contrasenia from sistemaTusug.usuario where rfc="+rfc+"";
+      Statement st= c.getConexion().createStatement();
+      ResultSet rs = st.executeQuery(con);
+
+
+
+        pass=rs.getString(1);
+            
+     }catch(Exception e){
+                System.out.println(e.getMessage());
+                 }
+     return pass;
+ }
 
 
    
