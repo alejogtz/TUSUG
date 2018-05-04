@@ -16,7 +16,7 @@ public class GUIMantenimientoAlmacen extends JFrame{
     public GUIMantenimientoAlmacen(){
         Builder.buildFrame(this,"Mantenimiento y Almacen",new Rectangle(300,300,700,600),true);
         
-        JLabel t1 = Builder.crearLabel(this, "Reportes de Mantenimiento y almacen", bounds, gris, gris)//new JLabel("Reportes de mantenimiento y almacen");
+        //JLabel t1 = Builder.crearLabel(this, "Reportes de Mantenimiento y almacen", bounds, gris, gris)//new JLabel("Reportes de mantenimiento y almacen");
         JLabel t2 = new JLabel("Filtrar");
         JLabel t3 = new JLabel("Area:");
         JLabel t4 = new JLabel("Fecha:");
@@ -31,7 +31,7 @@ public class GUIMantenimientoAlmacen extends JFrame{
         JLabel t13 = new JLabel("Ultimo año");
         JLabel t14 = new JLabel("Inicio");
         JLabel t15 = new JLabel("Cerrar Sesion");
-        t1.setForeground(gris);
+        //t1.setForeground(gris);
         t2.setForeground(Color.WHITE);
         t3.setForeground(Color.WHITE);
         t4.setForeground(Color.WHITE);
@@ -46,7 +46,7 @@ public class GUIMantenimientoAlmacen extends JFrame{
         t15.setForeground(magenta);
         
         
-        
+        /*
         Builder.agregarLabel(this,t1,new Rectangle(309,129,261,21),309,127,261,21);
         Builder.agregarLabel(this,t2,new Rectangle(83,129,37,17),83,127,37,17);
         Builder.agregarLabel(this,t3,new Rectangle(33,185,32,17),33,183,32,17);
@@ -72,7 +72,7 @@ public class GUIMantenimientoAlmacen extends JFrame{
         Builder.crearButtonIcon(this,"",new Rectangle(40,487,133,37),null,"src//Imagenes//actualizar lista.png",aguamarina);
         Builder.crearButtonIcon(this,"",new Rectangle(26,69,27,27),null,"src//Imagenes//Home gris azulado (27x27).png",Color.WHITE);
         Builder.crearButtonIcon(this,"",new Rectangle(537,70,23,23),null,"src//Imagenes//cerrar sesion.png",Color.WHITE);
-        
+        */
         //JTabla t = new JTabla();
         //this.add(t);
         //t.setBounds(222,164,461,364);

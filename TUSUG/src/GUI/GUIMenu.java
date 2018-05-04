@@ -65,11 +65,12 @@ public class GUIMenu {
             switch (comando) {
                 case "Trabajador":
                     // Code Here:
-                    //System.out.println(comando);
+                    new RHtrabajador();
                     break;
                 case "Autobus":
                     // Code Here:
-                    //System.out.println(comando);
+                    new autobuses();
+                    //ui.dispose();
                     break;
                 case "Ruta":
                     // Code Here:
