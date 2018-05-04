@@ -166,7 +166,7 @@ public class Builder {
         ui.add(panel);
         panel.setLayout(null);
         panel.setBounds(bounds);
-        panel.setOpaque(opaque);        
+        //panel.setOpaque(opaque);        
         return panel;
     }
     
