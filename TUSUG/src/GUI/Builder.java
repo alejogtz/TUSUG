@@ -86,6 +86,8 @@ public class Builder {
         btn.addActionListener(listener);
         ui.add(btn);
         btn.setBounds(bounds);
+        btn.setEnabled(enabled);
+        btn.setOpaque(false);
         if (!border) {
             btn.setBorder(null);
         }
