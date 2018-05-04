@@ -8,7 +8,7 @@ public class Conexion{
 	private static Connection conn = null;
 	//URL de Descargar del Driver
 	//https://jdbc.postgresql.org/download.html
-	private Conexion(){}
+	public Conexion(){}
 	
 	public void realizaConexion(){            
             String urlDatabase =  "jdbc:postgresql://localhost:5432/Tusug"; 

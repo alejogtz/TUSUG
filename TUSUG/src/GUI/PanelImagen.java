@@ -27,8 +27,8 @@ public class PanelImagen extends JPanel {
     }
 
     @Override
-    public void paint(Graphics g) {
+    public void paint(Graphics g) {        
         super.paint(g);
-        g.drawImage(imagen, 0, 0, this.getWidth(), this.getHeight(), null);
+        g.drawImage(imagen, 0, 0, this.getWidth(), this.getHeight(), null);        
     }
 }
