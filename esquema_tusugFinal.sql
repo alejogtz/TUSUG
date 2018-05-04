@@ -50,7 +50,7 @@ create table trabajador
 (
 	--No se aceptan valores nulos, al registrar un trabajador. 
 	--Podría ser demandada la empresa al incorporar un trabajadores ficticio
-	rfc int primary key not null,
+	rfc varchar (13) primary key not null,
 	nss varchar (50) not null,
 	nombre varchar(80) not null,
 	apellido varchar(100) not null,
@@ -71,7 +71,7 @@ create table trabajador
 
 create table chofer_autobus
 (	
-	rfc int references trabajador(rfc) not null,
+	rfc varchar references trabajador(rfc) not null,
 	codigo_autobus int references autobus(codigo_autobus) not null
 );
 
@@ -79,7 +79,7 @@ create table chofer
 (
 	--No se aceptan valores nulos en chofer, este debe ser registrado
 	--como trabajador dentro de la empresa, para poder operar una unidad de la empresa.
-	rfc int references trabajador(rfc) not null,
+	rfc varchar references trabajador(rfc) not null,
 	no_licencia int not null,
 	horas_trabajadas int,
 	experiencia int	
@@ -90,7 +90,7 @@ create table control_asistencia
 	--No se aceptan valores nulos en la fecha, ya que si esta estuviera vacía no se podría
 	--registrar el trabajador al control de asistencia.
 	fecha date not null,
-	rfc int references trabajador(rfc) not null,
+	rfc varchar references trabajador(rfc) not null,
 	hora_entrada varchar(8) not null,
 	hora_salida varchar(8)not null,
 	observacion varchar (100)not null
@@ -99,7 +99,7 @@ create table expediente_permanente
 (
 	--No se aceptan valores nulos en expediente permanente, debe existir el trabajador
 	--dentro de la empresa para poder ser registrado .
-	rfc int references trabajador(rfc)not null,
+	rfc varchar references trabajador(rfc)not null,
 	n_faltas int ,
 	n_actasadministrativas int
 );
@@ -138,4 +138,31 @@ create table servicio
 	codigo_m int references mantenimiento(codigo_m)not null,
 	codigo_producto int references refaccion(codigo_producto) not null,
 	cantidad_producto int
+);
+--Estas tablas no estaran en el modelo-relacional, pero si en el sistema
+create table usuario
+(
+	rfc varchar references trabajador(rfc),
+	id_rol int primary key,
+	contrasenia varchar (64),
+	url_image varchar(100),
+	uti_vez date
+);
+create table rol 
+(
+	id_rol int references usuario(id_rol),
+	descripcion varchar(100),
+	nivel varchar (30)
+);
+create table reporte
+(
+	fecha date,
+	folio int primary key,
+	url_formato varchar (100),
+	tipo_reporte varchar(50)
+);
+create table control_nomina
+(
+	fecha date,
+	url_nomina varchar(100)
 );
